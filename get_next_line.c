@@ -6,7 +6,7 @@
 /*   By: rmedina- <rmedina-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:05:43 by rmedina-          #+#    #+#             */
-/*   Updated: 2023/12/23 20:43:58 by rmedina-         ###   ########.fr       */
+/*   Updated: 2023/12/28 20:43:13 by rmedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ char *read_gnl(char *str_temp, int fd)
     temp = malloc(BUFFER_SIZE + 1 * sizeof (char));
     if(temp == NULL)
         return NULL;
-    temp[BUFFER_SIZE] = '\0';
-    temp = strjoin(*str_temp, *temp);
-    //En el while usar la funcion strchr del libft.
-    while(!temp == '\n')
+    while(!strrchr(temp, '\n'))
     {
         int_temp = read(fd, temp, BUFFER_SIZE);
         if(int_temp == -1)
             return NULL;
+        temp[int_temp] = '\0';
+        if(int_temp == 0)
+            break;
         str_temp = strjoin(*temp, *str_temp);
     }
     free(temp);

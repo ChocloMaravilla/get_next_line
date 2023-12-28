@@ -6,7 +6,7 @@
 /*   By: rmedina- <rmedina-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:06:11 by rmedina-          #+#    #+#             */
-/*   Updated: 2023/12/23 19:49:45 by rmedina-         ###   ########.fr       */
+/*   Updated: 2023/12/28 17:57:42 by rmedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ char	*strjoin(char const *s1, char const *s2)
 	con[i + s1len] = '\0';
 	return (con);
 }
-char	*ft_strrchr(const char *s, int c)
+char	*strrchr(const char *s, int c)
 {
 	size_t	len;
 
 	c = (char)c;
-	len = ft_strlen(s);
+	len = strlen(s);
 	if (!c)
 		return ((char *)&s[len]);
 	while (s[len] != c)
@@ -53,4 +53,15 @@ char	*ft_strrchr(const char *s, int c)
 		len--;
 	}
 	return ((char *)&s[len]);
+}
+size_t	strlen(const char *c)
+{
+	size_t	a;
+	char	*b;
+
+	b = (char *)c;
+	a = 0;
+	while (b[a] != '\0')
+		a++;
+	return (a);
 }
