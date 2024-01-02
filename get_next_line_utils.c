@@ -6,11 +6,13 @@
 /*   By: rmedina- <rmedina-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:06:11 by rmedina-          #+#    #+#             */
-/*   Updated: 2023/12/28 17:57:42 by rmedina-         ###   ########.fr       */
+/*   Updated: 2024/01/02 19:47:21 by rmedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*strjoin(char const *s1, char const *s2)
+#include "get_next_line.h"
+
+char	*strjoin(char *s1, char *s2)
 {
 	size_t	i;
 	size_t	s1len;
@@ -38,30 +40,53 @@ char	*strjoin(char const *s1, char const *s2)
 	con[i + s1len] = '\0';
 	return (con);
 }
-char	*strrchr(const char *s, int c)
+char	*ft_strchr(char *s, int c)
 {
-	size_t	len;
+	size_t	i;
 
-	c = (char)c;
-	len = strlen(s);
-	if (!c)
-		return ((char *)&s[len]);
-	while (s[len] != c)
+	i = 0;
+	while (s[i])
 	{
-		if (len <= 0)
-			return (NULL);
-		len--;
+		if (s[i] == c)
+			return (&s[i]);
+		i++;
 	}
-	return ((char *)&s[len]);
+	return (NULL);
 }
-size_t	strlen(const char *c)
+size_t	ft_strlen(char *c)
 {
 	size_t	a;
-	char	*b;
 
-	b = (char *)c;
 	a = 0;
-	while (b[a] != '\0')
+	if (!c)
+		return (0);
+	while (c[a] != '\0')
 		a++;
+	return (a);
+}
+char	*ft_substr(char *s, unsigned int start, size_t len)
+{
+	char	*a;
+	size_t	i;
+	size_t	c;
+
+	c = ft_strlen(s);
+	i = 0;
+	if (s == NULL)
+		return (0);
+	if (start >= c)
+		return (NULL);
+	if (len > (c - start))
+		len = c - start;
+	a = malloc(len + 1);
+	if (a == NULL)
+		return (NULL);
+	while (i < len)
+	{
+		a[i] = s[start];
+		i++;
+		start++;
+	}
+	a[i] = '\0';
 	return (a);
 }
