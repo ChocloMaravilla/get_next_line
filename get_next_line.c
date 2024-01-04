@@ -6,7 +6,7 @@
 /*   By: rmedina- <rmedina-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:05:43 by rmedina-          #+#    #+#             */
-/*   Updated: 2024/01/02 20:02:05 by rmedina-         ###   ########.fr       */
+/*   Updated: 2024/01/04 20:44:52 by rmedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,11 @@ char *get_next_line(int fd)
             return NULL;
         str_temp[0] = '\0';
     }
-    // printf("28: %s\n", str_temp);
     str_temp = read_gnl(str_temp, fd);
     if (!str_temp)
-        return (NULL);
-    // printf("30: %s\n", str_temp);
+        return NULL;
     str_return = get_linee(&str_temp);
-    // printf("32: %s\n", str_temp);
-    return str_return ;
+    return str_return;
 }
 char *read_gnl(char *str_temp, int fd)
 {
@@ -41,8 +38,7 @@ char *read_gnl(char *str_temp, int fd)
     char *str_join;
     temp = malloc(BUFFER_SIZE + 1); // this fucker
     if (!temp)
-        return NULL;
-    temp[0] = '\0';
+        return (free(str_temp), NULL);
     int_temp = 1;
     while(!ft_strchr(str_temp, '\n') && int_temp > 0)
     {
@@ -52,6 +48,7 @@ char *read_gnl(char *str_temp, int fd)
         temp[int_temp] = '\0';
         str_join = strjoin(str_temp, temp);
         free(str_temp);
+        
         str_temp = str_join;
         if (!str_temp)
             return (free(temp), NULL);
@@ -66,15 +63,14 @@ char *get_linee(char **str_temp)
     char *str_sub;
 
     str_cut = ft_strchr(*str_temp, '\n');
-    if (!str_cut)
+    if(!str_cut)
         str_cut = *str_temp + ft_strlen(*str_temp);
     line = ft_substr(*str_temp, 0, (size_t)(str_cut - *str_temp) + 1);
-    // printf("67: %s\n", str_cut);
     str_sub = ft_substr(*str_temp, (unsigned int)(str_cut - *str_temp) + 1, ft_strlen(*str_temp));
-    // printf("69: %s\n", str_sub);
     free(*str_temp);
     *str_temp = str_sub;
     return line;
+    //line y strsub checkeo de NULL
 }
 // int main()
 // {
