@@ -6,7 +6,7 @@
 /*   By: rmedina- <rmedina-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:06:11 by rmedina-          #+#    #+#             */
-/*   Updated: 2024/01/06 23:21:53 by rmedina-         ###   ########.fr       */
+/*   Updated: 2024/01/07 00:21:20 by rmedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ char	*strjoin(char *s1, char *s2)
 	con[i + s1len] = '\0';
 	return (con);
 }
+
 char	*ft_strchr(char *s, int c)
 {
 	size_t	i;
@@ -53,6 +54,7 @@ char	*ft_strchr(char *s, int c)
 	}
 	return (NULL);
 }
+
 size_t	ft_strlen(char *c)
 {
 	size_t	a;
@@ -64,6 +66,7 @@ size_t	ft_strlen(char *c)
 		a++;
 	return (a);
 }
+
 char	*ft_substr(char *s, unsigned int start, size_t len)
 {
 	char	*a;
