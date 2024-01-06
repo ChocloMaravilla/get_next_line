@@ -6,7 +6,7 @@
 /*   By: rmedina- <rmedina-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:05:57 by rmedina-          #+#    #+#             */
-/*   Updated: 2024/01/02 19:55:20 by rmedina-         ###   ########.fr       */
+/*   Updated: 2024/01/06 19:53:38 by rmedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #ifndef GET_NEXT_LINE_H 
 # define GET_NEXT_LINE_H
 #ifndef BUFFER_SIZE
-# define BUFFER_SIZE 1
+# define BUFFER_SIZE 10
 #endif
 
 #include <stdio.h>

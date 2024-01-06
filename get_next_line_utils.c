@@ -6,7 +6,7 @@
 /*   By: rmedina- <rmedina-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:06:11 by rmedina-          #+#    #+#             */
-/*   Updated: 2024/01/02 19:47:21 by rmedina-         ###   ########.fr       */
+/*   Updated: 2024/01/06 23:21:53 by rmedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,23 +70,19 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 	size_t	i;
 	size_t	c;
 
-	c = ft_strlen(s);
-	i = 0;
 	if (s == NULL)
-		return (0);
-	if (start >= c)
 		return (NULL);
+	c = ft_strlen(s);
+	if (!s || start >= c)
+		return (NULL);
+	i = 0;
 	if (len > (c - start))
 		len = c - start;
-	a = malloc(len + 1);
-	if (a == NULL)
+	a = (char *)malloc(sizeof(char) * len + 1);
+	if (!a)
 		return (NULL);
 	while (i < len)
-	{
-		a[i] = s[start];
-		i++;
-		start++;
-	}
+		a[i++] = s[start++];
 	a[i] = '\0';
 	return (a);
 }
