@@ -6,7 +6,7 @@
 /*   By: rmedina- <rmedina-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:05:43 by rmedina-          #+#    #+#             */
-/*   Updated: 2024/01/07 00:20:55 by rmedina-         ###   ########.fr       */
+/*   Updated: 2024/01/07 16:53:48 by rmedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	*read_gnl(char *str_temp, int fd)
 		if (int_temp == -1)
 			return (free(temp), free(str_temp), NULL);
 		temp[int_temp] = '\0';
-		str_join = strjoin(str_temp, temp);
+		str_join = ft_strjoin(str_temp, temp);
 		free(str_temp);
 		str_temp = str_join;
 		if (!str_temp)
@@ -104,7 +104,7 @@ char	*get_linee(char **str_temp)
 //         free(line);
 //         line = get_next_line(fd);
 //     }
-//     printf("\n");
+//     printf("\n%s", line);
 //     close(fd);
 //     return 0;
 // }

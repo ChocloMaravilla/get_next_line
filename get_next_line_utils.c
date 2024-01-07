@@ -6,13 +6,13 @@
 /*   By: rmedina- <rmedina-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:06:11 by rmedina-          #+#    #+#             */
-/*   Updated: 2024/01/07 00:21:20 by rmedina-         ###   ########.fr       */
+/*   Updated: 2024/01/07 16:33:09 by rmedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*strjoin(char *s1, char *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	size_t	i;
 	size_t	s1len;
